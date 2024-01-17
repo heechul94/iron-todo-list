@@ -1,10 +1,14 @@
 import "./InputStyle.css";
 
-const NormalInput = ({ labelName }) => {
+const NormalInput = ({ labelName, onChangeTitle, onChangeContent }) => {
     return (
         <div className="wrapper">
             <label>{labelName}</label>
-            <input />
+            <input
+                onChange={
+                    labelName === "제목" ? onChangeTitle : onChangeContent
+                }
+            />
         </div>
     );
 };
