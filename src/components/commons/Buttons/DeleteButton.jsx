@@ -1,4 +1,4 @@
-const DeleteButton = () => {
-    return <button>삭제</button>;
+const DeleteButton = ({ cardId, onClickDeleteTodo }) => {
+    return <button onClick={() => onClickDeleteTodo(cardId)}>삭제</button>;
 };
 export default DeleteButton;
