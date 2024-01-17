@@ -1,0 +1,10 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+}
+.input-label {
+    color: blueviolet;
+}
+.todo-input {
+    border: 1px solid blueviolet;
+}

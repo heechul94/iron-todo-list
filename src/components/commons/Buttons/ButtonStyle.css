@@ -1,0 +1,8 @@
+.submit-button {
+    width: 10rem;
+    border: none;
+    background-color: antiquewhite;
+    box-shadow: 1px 1px 1px black;
+    border-radius: 10px;
+    cursor: pointer;
+}
