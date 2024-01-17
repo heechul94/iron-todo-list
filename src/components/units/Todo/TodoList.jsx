@@ -30,6 +30,10 @@ const TodoList = () => {
         setTitle("");
         setContent("");
     };
+    const onClickDeleteTodo = (id) => {
+        const temp = todo.filter((item) => item.id !== id);
+        setTodo(...temp);
+    };
 
     return (
         <div className="wrapper">
@@ -52,13 +56,15 @@ const TodoList = () => {
             </form>
             <section className="working-content-wrapper">
                 Working...
-                {todo.map((item) => (
+                {todo?.map((item) => (
                     <TodoCard
                         key={item.id}
+                        cardId={item.id}
                         title={item.title}
                         content={item.content}
+                        onClickDeleteTodo={onClickDeleteTodo}
                     />
-                ))}
+                )) || <div />}
             </section>
             <section className="done-content-wrapper">
                 Done!!
