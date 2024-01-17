@@ -7,7 +7,7 @@ import "./TodoListStyle.css";
 const TodoList = () => {
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
-    const [todos, setTodo] = useState([]);
+    const [todo, setTodo] = useState([]);
 
     const onChangeTitle = (event) => {
         setTitle(event.target.value);
@@ -18,14 +18,14 @@ const TodoList = () => {
     const onClickAddTodo = (event) => {
         event.preventDefault();
         const newTodo = {
-            id: todos.length + 1,
+            id: todo.length + 1,
             title,
             content,
         };
-        if (todos.length === 0) {
+        if (todo.length === 0) {
             setTodo([newTodo]);
         } else {
-            setTodo([...todos, newTodo]);
+            setTodo([...todo, newTodo]);
         }
         setTitle("");
         setContent("");
@@ -52,7 +52,7 @@ const TodoList = () => {
             </form>
             <section className="working-content-wrapper">
                 Working...
-                {todos.map((item) => (
+                {todo.map((item) => (
                     <TodoCard
                         key={item.id}
                         title={item.title}
