@@ -1,12 +1,11 @@
-.input-wrapper {
-    display: flex;
-    flex-direction: column;
-    width: 30%;
-}
 .input-label {
+    display: flex;
+    flex-direction: row;
+    width: 30%;
     color: blueviolet;
 }
 .todo-input {
+    width: 80%;
     border: 1px solid blueviolet;
     border-radius: 5px;
 }

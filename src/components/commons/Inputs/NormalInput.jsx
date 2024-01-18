@@ -2,8 +2,8 @@ import "../Styles/InputStyle.css";
 
 const NormalInput = ({ labelName, onChangeTitle, onChangeContent, value }) => {
     return (
-        <div className="input-wrapper">
-            <label className="input-label">{labelName}</label>
+        <label className="input-label">
+            {labelName}
             <input
                 className="todo-input"
                 onChange={
@@ -11,7 +11,7 @@ const NormalInput = ({ labelName, onChangeTitle, onChangeContent, value }) => {
                 }
                 value={value}
             />
-        </div>
+        </label>
     );
 };
 export default NormalInput;
