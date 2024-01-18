@@ -8,8 +8,6 @@ const TodoList = () => {
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
     const [todo, setTodo] = useState([]);
-    const [isDone, setIsDone] = useState(false);
-    const [doneTodo, setDoneTodo] = useState([]);
 
     const onChangeTitle = (event) => {
         setTitle(event.target.value);
@@ -18,16 +16,17 @@ const TodoList = () => {
         setContent(event.target.value);
     };
 
-    const onClickButtonHandler = (event, id, type) => {
-        if (type === "delete") {
+    const onClickButtonHandler = (event, id, status = "submit") => {
+        if (status === "delete") {
             const temp = todo.filter((item) => item.id !== id);
-            setTodo(...temp);
-        } else if (type === "submit") {
+            setTodo([...temp]);
+        } else if (status === "submit") {
             event.preventDefault();
             const newTodo = {
                 id: Math.trunc(Math.random() * 1000),
                 title,
                 content,
+                isDone: false,
             };
             if (todo.length === 0 || !todo) {
                 setTodo([newTodo]);
@@ -36,10 +35,17 @@ const TodoList = () => {
             }
             setTitle("");
             setContent("");
-        } else if (type === "done") {
+        } else if (status === "done") {
+            const temp = todo.map((item) => {
+                if (item.id === id) {
+                    item.isDone = !item.isDone;
+                }
+                return item;
+            });
+            setTodo([...temp]);
         }
     };
-
+    console.log(todo);
     return (
         <div className="wrapper">
             <form className="input-wrapper">
@@ -61,29 +67,33 @@ const TodoList = () => {
             </form>
             <section className="working-content-wrapper">
                 Working...
-                {todo?.map((item) => (
-                    <TodoCard
-                        key={item.id}
-                        cardId={item.id}
-                        isDone={isDone}
-                        title={item.title}
-                        content={item.content}
-                        onClickButtonHandler={onClickButtonHandler}
-                    />
-                )) || <div />}
+                {todo
+                    ?.filter((item) => item.isDone === false)
+                    ?.map((item) => (
+                        <TodoCard
+                            key={item.id}
+                            cardId={item.id}
+                            isDone={item.isDone}
+                            title={item.title}
+                            content={item.content}
+                            onClickButtonHandler={onClickButtonHandler}
+                        />
+                    )) || <div />}
             </section>
             <section className="done-content-wrapper">
                 Done!!
-                {doneTodo?.map((item) => (
-                    <TodoCard
-                        key={item.id}
-                        cardId={item.id}
-                        isDone={isDone}
-                        title={item.title}
-                        content={item.content}
-                        onClickButtonHandler={onClickButtonHandler}
-                    />
-                )) || <div />}
+                {todo
+                    ?.filter((item) => item.isDone === true)
+                    ?.map((item) => (
+                        <TodoCard
+                            key={item.id}
+                            cardId={item.id}
+                            isDone={item.isDone}
+                            title={item.title}
+                            content={item.content}
+                            onClickButtonHandler={onClickButtonHandler}
+                        />
+                    )) || <div />}
             </section>
         </div>
     );

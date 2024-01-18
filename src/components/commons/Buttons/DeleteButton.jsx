@@ -1,8 +1,8 @@
 const DeleteButton = ({ cardId, onClickButtonHandler }) => {
-    const buttonType = "delete";
+    const status = "delete";
     return (
         <button
-            onClick={(event) => onClickButtonHandler(event, cardId, buttonType)}
+            onClick={(event) => onClickButtonHandler(event, cardId, status)}
         >
             삭제
         </button>

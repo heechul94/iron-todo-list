@@ -1,14 +1,15 @@
 import DeleteButton from "../Buttons/DeleteButton";
 import NormalButton from "../Buttons/NormalButton";
 import "./TodoCardStyle.css";
-const TodoCard = ({ cardId, title, content, onClickButtonHandler }) => {
+const TodoCard = ({ cardId, title, content, onClickButtonHandler, isDone }) => {
     return (
         <article key={cardId} className="card-wrapper">
             <div className="button-wrapper">
                 <NormalButton
-                    type={"done"}
+                    status={"done"}
                     cardId={cardId}
                     onClickButtonHandler={onClickButtonHandler}
+                    isDone={isDone}
                 />
                 <DeleteButton
                     cardId={cardId}

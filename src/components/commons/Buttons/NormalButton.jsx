@@ -1,13 +1,24 @@
 import "./ButtonStyle.css";
 
-const NormalButton = ({ cardId, type, buttonName, onClickButtonHandler }) => {
+const NormalButton = ({
+    cardId,
+    type,
+    buttonName,
+    onClickButtonHandler,
+    isDone,
+    status,
+}) => {
     return (
         <button
             type={type}
             className="submit-button"
-            onClick={(event) => onClickButtonHandler(event, cardId, type)}
+            onClick={(event) => onClickButtonHandler(event, cardId, status)}
         >
-            {buttonName}
+            {status === "done" && !isDone
+                ? "완료"
+                : status === "done" && isDone
+                ? "취소"
+                : buttonName}
         </button>
     );
 };
