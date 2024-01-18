@@ -1,5 +1,5 @@
 import Header from "./Header";
-import "./Layout.css";
+import "../Styles/Layout.css";
 
 const Layout = ({ children }) => {
     return (

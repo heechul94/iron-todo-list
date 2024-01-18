@@ -1,7 +1,8 @@
 .layout {
-    width: 1200px;
-    height: 800px;
-    margin: calc((100vh - 800px) / 2) auto;
+    min-width: 800px;
+    max-width: 1200px;
+    height: 100vh;
+    margin: 0 auto;
     border: 1px solid red;
 }
 

@@ -1,4 +1,4 @@
-import "./InputStyle.css";
+import "../Styles/InputStyle.css";
 
 const NormalInput = ({ labelName, onChangeTitle, onChangeContent, value }) => {
     return (

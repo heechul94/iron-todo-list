@@ -1,4 +1,4 @@
-import "./ButtonStyle.css";
+import "../Styles/ButtonStyle.css";
 
 const NormalButton = ({
     cardId,

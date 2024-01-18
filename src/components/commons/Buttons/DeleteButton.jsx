@@ -1,3 +1,5 @@
+import "../Styles/ButtonStyle.css";
+
 const DeleteButton = ({ cardId, onClickButtonHandler }) => {
     const status = "delete";
     return (
