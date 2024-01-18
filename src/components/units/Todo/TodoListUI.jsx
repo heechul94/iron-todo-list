@@ -30,8 +30,8 @@ const TodoListUI = ({
                     onClickButtonHandler={onClickButtonHandler}
                 />
             </form>
+            <span>Working...</span>
             <section className="working-content-wrapper">
-                Working...
                 {todo
                     ?.filter((item) => item.isDone === false)
                     ?.map((item) => (
@@ -45,8 +45,8 @@ const TodoListUI = ({
                         />
                     )) || <div />}
             </section>
+            <span>Done!!</span>
             <section className="done-content-wrapper">
-                Done!!
                 {todo
                     ?.filter((item) => item.isDone === true)
                     ?.map((item) => (
