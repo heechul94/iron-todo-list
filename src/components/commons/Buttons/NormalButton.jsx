@@ -11,7 +11,13 @@ const NormalButton = ({
     return (
         <button
             type={type}
-            className="submit-button"
+            className={
+                status === "done" && !isDone
+                    ? "todo-done-button"
+                    : status === "done" && isDone
+                    ? "todo-cancel-button"
+                    : "submit-button"
+            }
             onClick={(event) => onClickButtonHandler(event, cardId, status)}
         >
             {status === "done" && !isDone

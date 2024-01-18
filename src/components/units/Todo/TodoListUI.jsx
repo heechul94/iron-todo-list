@@ -12,8 +12,8 @@ const TodoListUI = ({
     onClickButtonHandler,
 }) => {
     return (
-        <div className="wrapper">
-            <form className="input-wrapper">
+        <div className="todo-wrapper">
+            <form className="card-input-wrapper">
                 <NormalInput
                     labelName={"제목"}
                     onChangeTitle={onChangeTitle}
