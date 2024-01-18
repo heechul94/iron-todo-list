@@ -1,6 +1,6 @@
 import "./InputStyle.css";
 
-const NormalInput = ({ labelName, onChangeTitle, onChangeContent }) => {
+const NormalInput = ({ labelName, onChangeTitle, onChangeContent, value }) => {
     return (
         <div className="wrapper">
             <label>{labelName}</label>
@@ -8,6 +8,7 @@ const NormalInput = ({ labelName, onChangeTitle, onChangeContent }) => {
                 onChange={
                     labelName === "제목" ? onChangeTitle : onChangeContent
                 }
+                value={value}
             />
         </div>
     );

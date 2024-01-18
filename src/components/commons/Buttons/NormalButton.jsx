@@ -1,8 +1,12 @@
 import "./ButtonStyle.css";
 
-const NormalButton = ({ type, buttonName, onClickAddTodo }) => {
+const NormalButton = ({ cardId, type, buttonName, onClickButtonHandler }) => {
     return (
-        <button type={type} className="submit-button" onClick={onClickAddTodo}>
+        <button
+            type={type}
+            className="submit-button"
+            onClick={(event) => onClickButtonHandler(event, cardId, type)}
+        >
             {buttonName}
         </button>
     );
