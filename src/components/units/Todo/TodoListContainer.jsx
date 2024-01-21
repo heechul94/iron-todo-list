@@ -25,11 +25,7 @@ const TodoListContainer = () => {
                 content,
                 isDone: false,
             };
-            if (todo.length === 0 || !todo) {
-                setTodo([newTodo]);
-            } else {
-                setTodo([...todo, newTodo]);
-            }
+            setTodo([...todo, newTodo]);
             setTitle("");
             setContent("");
         } else if (status === "done") {
